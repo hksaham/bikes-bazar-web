@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 25% 5%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 25% 8%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 200 100% 55%;
+    --primary-foreground: 220 25% 5%;
+
+    --secondary: 220 20% 14%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 210 10% 55%;
+
+    --accent: 310 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 16%;
+    --input: 220 20% 16%;
+    --ring: 200 100% 55%;
+
+    --radius: 0.75rem;
+
+    --earth: 200 100% 55%;
+    --earth-foreground: 0 0% 100%;
+    --earth-muted: 220 30% 20%;
+    --glass: 210 50% 80% / 0.06;
+    --glass-border: 210 50% 80% / 0.1;
+    --glass-heavy: 210 50% 80% / 0.12;
+
+    --sidebar-background: 220 25% 6%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 200 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 14%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 20% 16%;
+    --sidebar-ring: 200 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection {
+    background: hsl(200 100% 55% / 0.3);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[hsl(var(--glass))] backdrop-blur-xl border border-[hsl(var(--glass-border))];
+  }
+  .glass-heavy {
+    @apply bg-[hsl(var(--glass-heavy))] backdrop-blur-2xl border border-[hsl(var(--glass-border))];
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground;
+  }
+  .haptic {
+    @apply transition-transform duration-100 active:scale-[0.97];
+  }
+  .sold-overlay {
+    @apply relative after:absolute after:inset-0 after:bg-background/70 after:z-10 after:rounded-lg;
+  }
+}
